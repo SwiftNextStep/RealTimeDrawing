@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B650171DE746CA60F24B816 /* libPods-realtimeDraw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD813926F2A6E1F81A6AD2BD /* libPods-realtimeDraw.a */; };
 		2010D3BE1BDD7A9C00F75122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2010D3BD1BDD7A9C00F75122 /* AppDelegate.swift */; };
 		2010D3C01BDD7A9C00F75122 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2010D3BF1BDD7A9C00F75122 /* ViewController.swift */; };
 		2010D3C31BDD7A9C00F75122 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2010D3C11BDD7A9C00F75122 /* Main.storyboard */; };
 		2010D3C51BDD7A9C00F75122 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2010D3C41BDD7A9C00F75122 /* Assets.xcassets */; };
 		2010D3C81BDD7A9C00F75122 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2010D3C61BDD7A9C00F75122 /* LaunchScreen.storyboard */; };
+		2010D3D21BDD942500F75122 /* DrawningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2010D3D11BDD942500F75122 /* DrawningView.swift */; };
+		2010D3DA1BDDC79400F75122 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2010D3D91BDDC79400F75122 /* Podfile */; };
+		2010D3E01BDDD25300F75122 /* SNSPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2010D3DF1BDDD25300F75122 /* SNSPath.swift */; };
+		2010D3E91BDDFBA100F75122 /* SNSFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2010D3E81BDDFBA100F75122 /* SNSFirebase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,14 @@
 		2010D3C41BDD7A9C00F75122 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2010D3C71BDD7A9C00F75122 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2010D3C91BDD7A9C00F75122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2010D3D11BDD942500F75122 /* DrawningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawningView.swift; sourceTree = "<group>"; };
+		2010D3D91BDDC79400F75122 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		2010D3DE1BDDC94600F75122 /* realtimeDraw-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "realtimeDraw-Bridging-Header.h"; sourceTree = "<group>"; };
+		2010D3DF1BDDD25300F75122 /* SNSPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNSPath.swift; sourceTree = "<group>"; };
+		2010D3E81BDDFBA100F75122 /* SNSFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNSFirebase.swift; sourceTree = "<group>"; };
+		839BCADEA9ACCFBBCF5F5FBB /* Pods-realtimeDraw.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-realtimeDraw.release.xcconfig"; path = "Pods/Target Support Files/Pods-realtimeDraw/Pods-realtimeDraw.release.xcconfig"; sourceTree = "<group>"; };
+		99176E69633548D503B165F1 /* Pods-realtimeDraw.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-realtimeDraw.debug.xcconfig"; path = "Pods/Target Support Files/Pods-realtimeDraw/Pods-realtimeDraw.debug.xcconfig"; sourceTree = "<group>"; };
+		FD813926F2A6E1F81A6AD2BD /* libPods-realtimeDraw.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-realtimeDraw.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B650171DE746CA60F24B816 /* libPods-realtimeDraw.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +54,8 @@
 			children = (
 				2010D3BC1BDD7A9C00F75122 /* realtimeDraw */,
 				2010D3BB1BDD7A9B00F75122 /* Products */,
+				A0276E4EB83026E53B349567 /* Pods */,
+				FB8B95211747D61EB71540BB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +70,36 @@
 		2010D3BC1BDD7A9C00F75122 /* realtimeDraw */ = {
 			isa = PBXGroup;
 			children = (
+				2010D3E81BDDFBA100F75122 /* SNSFirebase.swift */,
 				2010D3BD1BDD7A9C00F75122 /* AppDelegate.swift */,
 				2010D3BF1BDD7A9C00F75122 /* ViewController.swift */,
+				2010D3D91BDDC79400F75122 /* Podfile */,
 				2010D3C11BDD7A9C00F75122 /* Main.storyboard */,
+				2010D3D11BDD942500F75122 /* DrawningView.swift */,
 				2010D3C41BDD7A9C00F75122 /* Assets.xcassets */,
 				2010D3C61BDD7A9C00F75122 /* LaunchScreen.storyboard */,
 				2010D3C91BDD7A9C00F75122 /* Info.plist */,
+				2010D3DE1BDDC94600F75122 /* realtimeDraw-Bridging-Header.h */,
+				2010D3DF1BDDD25300F75122 /* SNSPath.swift */,
 			);
 			path = realtimeDraw;
+			sourceTree = "<group>";
+		};
+		A0276E4EB83026E53B349567 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				99176E69633548D503B165F1 /* Pods-realtimeDraw.debug.xcconfig */,
+				839BCADEA9ACCFBBCF5F5FBB /* Pods-realtimeDraw.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FB8B95211747D61EB71540BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD813926F2A6E1F81A6AD2BD /* libPods-realtimeDraw.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +109,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2010D3CC1BDD7A9C00F75122 /* Build configuration list for PBXNativeTarget "realtimeDraw" */;
 			buildPhases = (
+				55C062BC30AD4E7A34CF9BE8 /* Check Pods Manifest.lock */,
 				2010D3B61BDD7A9B00F75122 /* Sources */,
 				2010D3B71BDD7A9B00F75122 /* Frameworks */,
 				2010D3B81BDD7A9B00F75122 /* Resources */,
+				DB431DE4D97B2E9CF24D6A44 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,18 +164,55 @@
 			files = (
 				2010D3C81BDD7A9C00F75122 /* LaunchScreen.storyboard in Resources */,
 				2010D3C51BDD7A9C00F75122 /* Assets.xcassets in Resources */,
+				2010D3DA1BDDC79400F75122 /* Podfile in Resources */,
 				2010D3C31BDD7A9C00F75122 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		55C062BC30AD4E7A34CF9BE8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DB431DE4D97B2E9CF24D6A44 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-realtimeDraw/Pods-realtimeDraw-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2010D3B61BDD7A9B00F75122 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2010D3E91BDDFBA100F75122 /* SNSFirebase.swift in Sources */,
 				2010D3C01BDD7A9C00F75122 /* ViewController.swift in Sources */,
+				2010D3E01BDDD25300F75122 /* SNSPath.swift in Sources */,
+				2010D3D21BDD942500F75122 /* DrawningView.swift in Sources */,
 				2010D3BE1BDD7A9C00F75122 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,23 +324,30 @@
 		};
 		2010D3CD1BDD7A9C00F75122 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99176E69633548D503B165F1 /* Pods-realtimeDraw.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = realtimeDraw/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swiftnextstep.realtimeDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "realtimeDraw/realtimeDraw-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		2010D3CE1BDD7A9C00F75122 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 839BCADEA9ACCFBBCF5F5FBB /* Pods-realtimeDraw.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = realtimeDraw/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swiftnextstep.realtimeDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "realtimeDraw/realtimeDraw-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -286,6 +370,7 @@
 				2010D3CE1BDD7A9C00F75122 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

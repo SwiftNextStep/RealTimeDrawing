@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="realtimeDraw" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,7 +17,57 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="41E-aq-cTv">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70H-W9-YPo" customClass="DrawningView" customModule="realtimeDraw" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="514"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iqW-Qx-odf">
+                                        <rect key="frame" x="0.0" y="514" width="600" height="66"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="18z-sQ-AQ4">
+                                                <rect key="frame" x="8" y="8" width="584" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAP-Ya-4Ja">
+                                                        <rect key="frame" x="0.0" y="10" width="281" height="30"/>
+                                                        <animations/>
+                                                        <state key="normal" title="Clear Screen"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMj-rV-ljB">
+                                                        <rect key="frame" x="303" y="10" width="281" height="30"/>
+                                                        <animations/>
+                                                        <state key="normal" title="Change Color"/>
+                                                    </button>
+                                                </subviews>
+                                                <animations/>
+                                            </stackView>
+                                        </subviews>
+                                        <animations/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="18z-sQ-AQ4" firstAttribute="leading" secondItem="iqW-Qx-odf" secondAttribute="leadingMargin" id="JAV-NW-z4n"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="18z-sQ-AQ4" secondAttribute="trailing" id="SaR-0W-0r7"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="18z-sQ-AQ4" secondAttribute="bottom" id="aXz-UM-WV0"/>
+                                            <constraint firstItem="18z-sQ-AQ4" firstAttribute="top" secondItem="iqW-Qx-odf" secondAttribute="topMargin" id="r26-gV-vao"/>
+                                            <constraint firstAttribute="height" constant="66" id="xMq-ZC-Jb7"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                        </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="41E-aq-cTv" secondAttribute="trailing" id="7cZ-S5-YAD"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="41E-aq-cTv" secondAttribute="bottom" id="ROz-Fz-KyC"/>
+                            <constraint firstItem="41E-aq-cTv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Xen-HP-STV"/>
+                            <constraint firstItem="41E-aq-cTv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ddS-db-9K0"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
