@@ -15,7 +15,7 @@ class SNSFirebase {
     
     private init(){
         chieldAddedHandler = firebase.observeEventType(.ChildAdded, withBlock: { (snapshot:FDataSnapshot!) -> Void in
-            NSNotificationCenter.defaultCenter().postNotificationName(self.callbackFromFirebase, object: nil, userInfo: ["send":"Ok"])
+            NSNotificationCenter.defaultCenter().postNotificationName(self.callbackFromFirebase, object: nil, userInfo: ["send":snapshot])
         })
     }
 
