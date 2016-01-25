@@ -25,8 +25,27 @@ class DrawningView: UIView {
     }
     
     func addFromFirebase(sender: NSNotification){
-        if let info = sender.userInfo{
-            print(info)
+        if let info = sender.userInfo as? Dictionary<String,FDataSnapshot> {
+            let data = info["send"]
+            if let data = data?.value{
+                let points = data.valueForKey("points") as! NSArray
+                let firstPoint = points.firstObject!
+                
+                let context = UIGraphicsGetCurrentContext()
+                CGContextSetLineWidth(context, 1.5)
+                CGContextBeginPath(context)
+                CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
+                
+                CGContextMoveToPoint(context, firstPoint.valueForKey("x") as! CGFloat, firstPoint.valueForKey("y") as! CGFloat)
+                if (points.count > 1){
+                    for index in 1...points.count - 1{
+                        let currentPoint = points[index]
+                        CGContextAddLineToPoint(context, currentPoint.valueForKey("x") as! CGFloat, currentPoint.valueForKey("y") as! CGFloat)
+                    }
+                }
+                CGContextDrawPath(context, CGPathDrawingMode.Stroke)
+                setNeedsDisplay()
+            }
         }
     }
     
