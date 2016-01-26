@@ -27,24 +27,22 @@ class DrawningView: UIView {
     func addFromFirebase(sender: NSNotification){
         if let info = sender.userInfo as? Dictionary<String,FDataSnapshot> {
             let data = info["send"]
-            if let data = data?.value{
-                let points = data.valueForKey("points") as! NSArray
-                let firstPoint = points.firstObject!
-                
-                let context = UIGraphicsGetCurrentContext()
-                CGContextSetLineWidth(context, 1.5)
-                CGContextBeginPath(context)
-                CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
-                
-                CGContextMoveToPoint(context, firstPoint.valueForKey("x") as! CGFloat, firstPoint.valueForKey("y") as! CGFloat)
-                if (points.count > 1){
-                    for index in 1...points.count - 1{
-                        let currentPoint = points[index]
-                        CGContextAddLineToPoint(context, currentPoint.valueForKey("x") as! CGFloat, currentPoint.valueForKey("y") as! CGFloat)
+            if let firebaseKey = data?.key{
+                if !allKeys.contains(firebaseKey){
+                    if let data = data?.value{
+                        print(data)
+                        let points = data.valueForKey("points") as! NSArray
+                        let firstPoint = points.firstObject!
+                        let currentPoint = CGPoint(x: firstPoint.valueForKey("x") as! Double, y: firstPoint.valueForKey("y") as! Double)
+                        currentSNSPath = SNSPath(point: currentPoint, color: UIColor.blackColor())
+                        for point in points{
+                            let p = CGPoint(x: point.valueForKey("x") as! Double, y: point.valueForKey("y") as! Double)
+                            currentSNSPath?.addPoint(p)
+                        }
                     }
+                    resetPatch()
+                    setNeedsDisplay()
                 }
-                CGContextDrawPath(context, CGPathDrawingMode.Stroke)
-                setNeedsDisplay()
             }
         }
     }
@@ -137,7 +135,6 @@ class DrawningView: UIView {
             allKeys.append(returnKey)
             allPaths.append(pathToSend)
         }
-        
     }
     
     func addTouch(touches: Set<UITouch>){

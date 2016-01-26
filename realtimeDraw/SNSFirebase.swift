@@ -23,7 +23,7 @@ class SNSFirebase {
     let firebase = Firebase(url:"https://sns-drawningapp.firebaseio.com/")
 
     func testUnit(text:String){
-        firebase.setValue(text)
+        firebase.childByAppendingPath(text).removeValue()
     }
     
     func addPathToSend(path: SNSPath)->String{
