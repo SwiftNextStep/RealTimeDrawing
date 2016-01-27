@@ -28,7 +28,7 @@ class DrawningView: UIView {
         if let info = sender.userInfo as? Dictionary<String,FDataSnapshot> {
             let data = info["send"]
             if let firebaseKey = data?.key{
-                firebase.testUnit(firebaseKey)
+                //firebase.testUnit(firebaseKey)
 
                 if !allKeys.contains(firebaseKey){
                     if let data = data?.value{
