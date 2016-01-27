@@ -28,6 +28,8 @@ class DrawningView: UIView {
         if let info = sender.userInfo as? Dictionary<String,FDataSnapshot> {
             let data = info["send"]
             if let firebaseKey = data?.key{
+                firebase.testUnit(firebaseKey)
+
                 if !allKeys.contains(firebaseKey){
                     if let data = data?.value{
                         print(data)
@@ -40,7 +42,7 @@ class DrawningView: UIView {
                             currentSNSPath?.addPoint(p)
                         }
                     }
-                    resetPatch()
+                    resetPatch(false)
                     setNeedsDisplay()
                 }
             }
@@ -115,24 +117,26 @@ class DrawningView: UIView {
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         addTouch(touches)
-        resetPatch()
+        resetPatch(true)
         super.touchesEnded(touches, withEvent: event)
     }
     
     override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
-        resetPatch()
+        resetPatch(true)
         print("Touch Cancelled")
         setNeedsDisplay()
         super.touchesCancelled(touches, withEvent: event)
     }
     
-    func resetPatch(){
+    func resetPatch(sendToFirebase:Bool){
         currentTouch = nil
         currentPath = nil
         currentSNSPath?.serialize()
         if let pathToSend = currentSNSPath{
-            let returnKey = firebase.addPathToSend(pathToSend)
-            allKeys.append(returnKey)
+            if sendToFirebase{
+                let returnKey = firebase.addPathToSend(pathToSend)
+                allKeys.append(returnKey)
+            }
             allPaths.append(pathToSend)
         }
     }
