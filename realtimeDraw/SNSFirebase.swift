@@ -10,6 +10,7 @@ import UIKit
 
 class SNSFirebase {
     let callbackFromFirebase = "callbackFromFirebase"
+    let callbackResetDrawing = "callbackResetDrawing"
     static let sharedInstance = SNSFirebase()
     var chieldAddedHandler = FirebaseHandle()
     
@@ -37,6 +38,10 @@ class SNSFirebase {
             }
         }
         return firebaseKey.key
+    }
+    
+    func resetValues(){
+        firebase.setValue("")
     }
 
 }

@@ -21,7 +21,16 @@ class DrawningView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("addFromFirebase:"), name: firebase.callbackFromFirebase, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("resetDrawing:"), name: firebase.callbackResetDrawing, object: nil)
 
+    }
+    
+    func resetDrawing(sender: NSNotification){
+        allKeys.removeAll()
+        allPaths.removeAll()
+        firebase.resetValues()
+        setNeedsDisplay()   
+        
     }
     
     func addFromFirebase(sender: NSNotification){

@@ -11,7 +11,11 @@ import UIKit
 class ViewController: UIViewController {
     
     let firebase = SNSFirebase.sharedInstance
-    
+
+    @IBOutlet weak var drawingView: DrawningView!
+    @IBAction func clear(sender: AnyObject) {
+        NSNotificationCenter.defaultCenter().postNotificationName(firebase.callbackResetDrawing, object: nil)        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
     }
