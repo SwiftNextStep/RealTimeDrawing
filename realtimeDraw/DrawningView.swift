@@ -20,9 +20,21 @@ class DrawningView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("addFromFirebase:"), name: firebase.callbackFromFirebase, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("resetDrawing:"), name: firebase.callbackResetDrawing, object: nil)
-
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DrawningView.addFromFirebase(_:)), name: firebase.callbackFromFirebase, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DrawningView.resetDrawing(_:)), name: firebase.callbackResetDrawing, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DrawningView.recieveNewColor(_:)), name: firebase.callbackNewColor, object: nil)
+    }
+    
+    func recieveNewColor(sender:NSNotification){
+        if let info = sender.userInfo as? Dictionary<String,String> {
+            if let stringNewColor = info["newColor"]{
+                let ciColor = CIColor(string: stringNewColor)
+                let uiColor = UIColor(CIColor: ciColor)
+                currentColor = uiColor
+                print("Received new color \(stringNewColor)")
+            }
+        }
+        
     }
     
     func resetDrawing(sender: NSNotification){
@@ -43,9 +55,13 @@ class DrawningView: UIView {
                     if let data = data?.value{
                         print(data)
                         let points = data.valueForKey("points") as! NSArray
+                        let color = data.valueForKey("color") as! String
+                        let ciColor = CIColor(string: color)
+                        let uiColor = UIColor(CIColor: ciColor)
+                        
                         let firstPoint = points.firstObject!
                         let currentPoint = CGPoint(x: firstPoint.valueForKey("x") as! Double, y: firstPoint.valueForKey("y") as! Double)
-                        currentSNSPath = SNSPath(point: currentPoint, color: UIColor.blackColor())
+                        currentSNSPath = SNSPath(point: currentPoint, color: uiColor)
                         for point in points{
                             let p = CGPoint(x: point.valueForKey("x") as! Double, y: point.valueForKey("y") as! Double)
                             currentSNSPath?.addPoint(p)
@@ -66,10 +82,11 @@ class DrawningView: UIView {
         let context = UIGraphicsGetCurrentContext()
         CGContextSetLineWidth(context, 1.5)
         CGContextBeginPath(context)
-        CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
 
         for path in allPaths{
             let pathArray = path.points
+            let color = path.color
+            CGContextSetStrokeColorWithColor(context, color.CGColor)
             if let firstPoint = pathArray.first{
                 CGContextMoveToPoint(context, firstPoint.x!, firstPoint.y!)
                 if (pathArray.count > 1){
@@ -86,6 +103,7 @@ class DrawningView: UIView {
         if let firstPoint = currentPath?.first{
             CGContextMoveToPoint(context, firstPoint.x, firstPoint.y)
             if (currentPath!.count > 1){
+                CGContextSetStrokeColorWithColor(context, self.currentColor?.CGColor)
                 for index in 1...currentPath!.count - 1{
                     let currentPoint = currentPath![index]
                     CGContextAddLineToPoint(context, currentPoint.x, currentPoint.y)
@@ -98,7 +116,6 @@ class DrawningView: UIView {
     
     //MARK: Touch functions
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        currentColor = UIColor.blackColor() //FIXME:
         if (currentPath == nil){
             currentTouch = UITouch()
             currentTouch = touches.first
@@ -106,7 +123,7 @@ class DrawningView: UIView {
             if let currentPoint = currentPoint{
                 currentPath = Array<CGPoint>()
                 currentPath?.append(currentPoint)
-                if let currentColor = currentColor{
+                if let currentColor = self.currentColor{
                     currentSNSPath = SNSPath(point: currentPoint, color: currentColor)
                 } else{
                     currentSNSPath = SNSPath(point: currentPoint, color: UIColor.blackColor())

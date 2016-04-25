@@ -28,7 +28,7 @@
 		2010D3C71BDD7A9C00F75122 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2010D3C91BDD7A9C00F75122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2010D3D11BDD942500F75122 /* DrawningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawningView.swift; sourceTree = "<group>"; };
-		2010D3D91BDDC79400F75122 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		2010D3D91BDDC79400F75122 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2010D3DE1BDDC94600F75122 /* realtimeDraw-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "realtimeDraw-Bridging-Header.h"; sourceTree = "<group>"; };
 		2010D3DF1BDDD25300F75122 /* SNSPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNSPath.swift; sourceTree = "<group>"; };
 		2010D3E81BDDFBA100F75122 /* SNSFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNSFirebase.swift; sourceTree = "<group>"; };
@@ -114,6 +114,7 @@
 				2010D3B71BDD7A9B00F75122 /* Frameworks */,
 				2010D3B81BDD7A9B00F75122 /* Resources */,
 				DB431DE4D97B2E9CF24D6A44 /* Copy Pods Resources */,
+				D8D678FA3FCF6D06A19AD913 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,6 +186,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D8D678FA3FCF6D06A19AD913 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-realtimeDraw/Pods-realtimeDraw-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DB431DE4D97B2E9CF24D6A44 /* Copy Pods Resources */ = {

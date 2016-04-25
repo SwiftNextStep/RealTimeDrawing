@@ -11,6 +11,7 @@ import UIKit
 class SNSFirebase {
     let callbackFromFirebase = "callbackFromFirebase"
     let callbackResetDrawing = "callbackResetDrawing"
+    let callbackNewColor = "callbackNewColor"
     static let sharedInstance = SNSFirebase()
     var chieldAddedHandler = FirebaseHandle()
     

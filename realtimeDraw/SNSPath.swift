@@ -42,7 +42,8 @@ class SNSPath: NSObject {
     func serialize() -> NSDictionary{
         
         let dictionary = NSMutableDictionary()
-        dictionary["color"] = 1 //FIXME:
+        let cgColor = color.CGColor
+        dictionary["color"] = CIColor(CGColor: cgColor).stringRepresentation
         let pointsOfPath = NSMutableArray()
         for point in points{
             let pointDictionary = NSMutableDictionary()
